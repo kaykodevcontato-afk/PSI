@@ -34,7 +34,3 @@ O logotipo `assets/logo-assinatura-barbara-rodrigues.png` é uma assinatura em P
 
 ## Atualização de imagens
 As duas fotografias secundárias foram removidas do site e da pasta `assets/`. As seções Sobre e Consultório agora apresentam painéis de texto sem imagens secundárias.
-
-## Vídeo em janela
-
-A seção “Conheça um pouco mais sobre a profissional” mostra uma capa com botão de reprodução. O vídeo abre em uma janela sobre o site, na proporção original e sem recorte. Pode ser fechado pelo botão Fechar, por clique fora do player ou pela tecla Esc; ao fechar, o vídeo é pausado.

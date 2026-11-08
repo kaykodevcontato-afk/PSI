@@ -193,13 +193,11 @@
           <div class="video-quote">“Todo começo pode ser mais leve quando existe escuta.”</div>
         </div>
 
-        <div class="video-preview">
-          <button class="video-open" id="open-video" type="button" aria-haspopup="dialog" aria-controls="video-dialog" aria-label="Assistir ao vídeo de apresentação da psicóloga Bárbara Rodrigues">
-            <img src="assets/barbara-retrato.jpg" alt="" loading="lazy" />
-            <span class="video-preview-shade" aria-hidden="true"></span>
-            <span class="video-play" aria-hidden="true">▶</span>
-            <span class="video-preview-label">Assistir ao vídeo completo <span aria-hidden="true">↗</span></span>
-          </button>
+        <div class="video-box">
+          <video controls playsinline preload="metadata" poster="assets/barbara-retrato.jpg" aria-label="Vídeo de apresentação da psicóloga Bárbara Rodrigues">
+            <source src="assets/barbara-video.mp4" type="video/mp4" />
+            Seu navegador não suporta vídeo HTML5.
+          </video>
         </div>
       </div>
     </section>
@@ -224,21 +222,6 @@
       </div>
     </section>
   </main>
-
-  <!-- VÍDEO EM JANELA: mantém a proporção original, sem cortar a gravação. -->
-  <div class="video-dialog" id="video-dialog" role="dialog" aria-modal="true" aria-label="Vídeo de apresentação de Bárbara Rodrigues" hidden>
-    <div class="video-dialog-backdrop" data-close-video></div>
-    <div class="video-dialog-panel" role="document">
-      <div class="video-dialog-header">
-        <div><strong>Bárbara Rodrigues</strong><span>Vídeo de apresentação</span></div>
-        <button type="button" id="close-video" class="video-dialog-close" aria-label="Fechar vídeo">✕ <span>Fechar</span></button>
-      </div>
-      <video id="barbara-modal-video" controls playsinline preload="none" aria-label="Vídeo completo de Bárbara Rodrigues">
-        <source src="assets/barbara-video.mp4" type="video/mp4" />
-        Seu navegador não suporta vídeo HTML5.
-      </video>
-    </div>
-  </div>
 
   <footer class="footer">
     <div class="shell footer-grid">
