@@ -37,3 +37,39 @@ if (digits.length >= 12 && digits.length <= 13) {
     note.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
+
+
+/* Janela de vídeo: abre sobre a página, sem cortes e com fechamento acessível. */
+const videoDialog = document.getElementById('video-dialog');
+const openVideoButton = document.getElementById('open-video');
+const closeVideoButton = document.getElementById('close-video');
+const modalVideo = document.getElementById('barbara-modal-video');
+let previousVideoFocus = null;
+
+function openVideoDialog() {
+  previousVideoFocus = document.activeElement;
+  videoDialog.hidden = false;
+  document.body.classList.add('video-modal-open');
+  closeVideoButton.focus();
+  modalVideo.play().catch(() => {});
+}
+function closeVideoDialog() {
+  modalVideo.pause();
+  modalVideo.currentTime = 0;
+  videoDialog.hidden = true;
+  document.body.classList.remove('video-modal-open');
+  if (previousVideoFocus && typeof previousVideoFocus.focus === 'function') previousVideoFocus.focus();
+}
+openVideoButton.addEventListener('click', openVideoDialog);
+closeVideoButton.addEventListener('click', closeVideoDialog);
+videoDialog.querySelector('[data-close-video]').addEventListener('click', closeVideoDialog);
+document.addEventListener('keydown', event => {
+  if (videoDialog.hidden) return;
+  if (event.key === 'Escape') closeVideoDialog();
+  if (event.key === 'Tab') {
+    const focusable = [closeVideoButton, modalVideo];
+    const index = focusable.indexOf(document.activeElement);
+    if (event.shiftKey && index <= 0) { event.preventDefault(); modalVideo.focus(); }
+    else if (!event.shiftKey && index === focusable.length - 1) { event.preventDefault(); closeVideoButton.focus(); }
+  }
+});
