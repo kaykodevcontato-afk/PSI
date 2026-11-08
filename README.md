@@ -34,3 +34,17 @@ O logotipo `assets/logo-assinatura-barbara-rodrigues.png` é uma assinatura em P
 
 ## Atualização de imagens
 As duas fotografias secundárias foram removidas do site e da pasta `assets/`. As seções Sobre e Consultório agora apresentam painéis de texto sem imagens secundárias.
+
+## Vídeo na página (novo estilo)
+
+O vídeo aparece diretamente na seção “Conheça um pouco mais sobre a profissional”, em um player horizontal 16:9, com controles nativos de reprodução, volume, progresso e tela cheia. Não usa modal e não recorta a gravação (`object-fit: contain`). O botão extra de tela cheia depende de JavaScript, mas o próprio vídeo funciona sem ele.
+
+## Vídeo com foto de apresentação
+A foto `assets/barbara-retrato.jpg` aparece antes do vídeo. Ao clicar em **Assistir apresentação**, o vídeo `assets/barbara-video.mp4` toca sem cortar. Ao terminar, retorna automaticamente à foto. Também existe a opção **Voltar para a foto ×**.
+
+## Foto compacta e player expansível
+
+Na seção de apresentação, a foto começa em um cartão compacto (largura máxima de 430 px). Ao clicar em **Assistir apresentação**, o cartão expande até 900 px, o vídeo aparece no formato original sem cortes e a página rola até o player. Ao terminar o vídeo ou escolher **Voltar para a foto**, o cartão volta ao tamanho compacto e mostra a imagem novamente.
+
+## Atualização da capa de vídeo
+A foto agora aparece sem textos ou ícone de play sobre ela. O botão **Assistir ao vídeo** está abaixo da imagem; também é possível clicar na própria foto. Ao terminar, o vídeo volta para a foto.

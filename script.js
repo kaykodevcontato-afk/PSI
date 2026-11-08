@@ -37,3 +37,43 @@ if (digits.length >= 12 && digits.length <= 13) {
     note.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
+
+/* Capa da foto -> vídeo -> volta à foto ao terminar. */
+const presentationVideo = document.getElementById('barbara-video');
+const presentationCover = document.getElementById('play-presentation');
+const resetPresentation = document.getElementById('reset-presentation');
+const presentationStatus = document.getElementById('presentation-status');
+const presentationPlayer = document.querySelector('.showcase-player');
+const presentationStart = document.getElementById('presentation-start');
+function restorePhoto() {
+  presentationVideo.pause();
+  presentationVideo.currentTime = 0;
+  presentationVideo.hidden = true;
+  presentationPlayer.classList.remove('is-playing');
+  presentationCover.hidden = false;
+  resetPresentation.hidden = true;
+  presentationStatus.textContent = 'Bárbara Rodrigues · Psicóloga';
+  presentationStart.hidden = false;
+}
+function startPresentation() {
+  presentationCover.hidden = true;
+  presentationPlayer.classList.add('is-playing');
+  presentationVideo.hidden = false;
+  resetPresentation.hidden = false;
+  presentationStatus.textContent = 'Vídeo em reprodução';
+  presentationStart.hidden = true;
+  presentationVideo.currentTime = 0;
+  // Ao expandir o player, posiciona a reprodução dentro da área visível.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(() => {
+    presentationPlayer.scrollIntoView({behavior: reduceMotion ? 'instant' : 'smooth', block: 'center'});
+  });
+  const playing = presentationVideo.play();
+  if (playing && typeof playing.catch === 'function') {
+    playing.catch(() => { presentationStatus.textContent = 'Pressione reproduzir no vídeo para assistir.'; });
+  }
+}
+presentationCover.addEventListener('click', startPresentation);
+presentationStart.addEventListener('click', startPresentation);
+presentationVideo.addEventListener('ended', restorePhoto);
+resetPresentation.addEventListener('click', restorePhoto);

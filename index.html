@@ -182,22 +182,32 @@
       </div>
     </section>
 
-    <section class="section" id="video">
-      <div class="shell video-layout">
-        <div class="video-copy">
+    <!-- A foto é a capa; vídeo só é exibido após o clique. -->
+    <section class="section video-showcase" id="video">
+      <div class="shell">
+        <div class="video-showcase-heading">
           <span class="section-tag">VÍDEO DE APRESENTAÇÃO</span>
           <h2>Conheça um pouco mais sobre a profissional</h2>
-          <p>
-            Se desejar, você pode assistir ao vídeo para conhecer melhor a proposta de acolhimento e o ambiente de atendimento.
-          </p>
-          <div class="video-quote">“Todo começo pode ser mais leve quando existe escuta.”</div>
+          <p>Conheça a psicóloga Bárbara Rodrigues em um breve vídeo de apresentação.</p>
         </div>
-
-        <div class="video-box">
-          <video controls playsinline preload="metadata" poster="assets/barbara-retrato.jpg" aria-label="Vídeo de apresentação da psicóloga Bárbara Rodrigues">
-            <source src="assets/barbara-video.mp4" type="video/mp4" />
-            Seu navegador não suporta vídeo HTML5.
-          </video>
+        <div class="showcase-player">
+          <div class="showcase-player-top"><span class="live-dot" aria-hidden="true"></span> CONHEÇA A PROFISSIONAL <span class="showcase-duration">BÁRBARA RODRIGUES · CRP 02/24493</span></div>
+          <div class="presentation-stage">
+            <button class="presentation-cover" id="play-presentation" type="button" aria-label="Assistir apresentação da psicóloga Bárbara Rodrigues">
+              <img src="assets/barbara-retrato.jpg" alt="Psicóloga Bárbara Rodrigues sorrindo no consultório" loading="lazy" />
+            </button>
+            <video id="barbara-video" controls playsinline preload="metadata" aria-label="Vídeo de apresentação da psicóloga Bárbara Rodrigues" hidden>
+              <source src="assets/barbara-video.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeos HTML5. <a href="assets/barbara-video.mp4">Abrir o vídeo</a>.
+            </video>
+          </div>
+          <div class="showcase-player-bottom">
+            <div class="presentation-prompt" id="presentation-prompt">
+              <span id="presentation-status" aria-live="polite">Bárbara Rodrigues · Psicóloga</span>
+              <button class="presentation-start" id="presentation-start" type="button">Assistir ao vídeo <span aria-hidden="true">↗</span></button>
+            </div>
+            <button class="presentation-reset" id="reset-presentation" type="button" hidden>Voltar para a foto ×</button>
+          </div>
         </div>
       </div>
     </section>

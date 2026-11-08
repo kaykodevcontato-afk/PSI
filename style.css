@@ -418,3 +418,75 @@ button{font:inherit}
 .space-detail strong{font:600 27px/1.1 var(--serif)}
 .space-detail p{margin:7px 0 0;color:var(--muted);font-size:14px}
 @media(max-width:760px){.profile-panel{min-height:400px}.profile-panel h3{font-size:46px}}
+
+
+/* Player horizontal 16:9: usa controles nativos, sem recortar */
+.video-showcase{background:linear-gradient(160deg,#eee7df 0%,#f7f3ee 65%,#edf0ea 100%)}
+.video-showcase-heading{text-align:center;max-width:720px;margin:0 auto 36px}
+.video-showcase-heading h2{font:600 clamp(40px,5vw,64px)/1.02 var(--serif);letter-spacing:-.035em;margin:14px 0 16px}
+.video-showcase-heading p{font-size:15px;line-height:1.8;color:var(--muted)}
+.showcase-player{overflow:hidden;border-radius:22px;background:#1f2521;box-shadow:0 22px 54px rgba(48,51,43,.19);border:1px solid rgba(64,72,61,.15);max-width:980px;margin:auto}
+.showcase-player-top{display:flex;align-items:center;gap:10px;padding:14px 20px;color:#f7f5ef;font-size:11px;font-weight:700;letter-spacing:.16em}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#b2c8b6;flex:0 0 auto}
+.showcase-duration{margin-left:auto;color:#c4d0c7;font-size:10px;letter-spacing:.10em}
+#barbara-video{display:block;width:100%;height:auto;aspect-ratio:1276 / 720;object-fit:contain;background:#121713}
+.showcase-player-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;color:#cbd5cc;font-size:12px}
+.fullscreen-action{cursor:pointer;border:1px solid #82978a;color:#fff;background:transparent;padding:10px 15px;border-radius:999px;white-space:nowrap}
+.fullscreen-action:hover,.fullscreen-action:focus-visible{background:#52675a}
+@media(max-width:600px){.showcase-player{border-radius:14px}.showcase-player-top{padding:12px;font-size:9px}.showcase-duration{display:none}.showcase-player-bottom{padding:12px;flex-direction:column;align-items:stretch;text-align:center}.fullscreen-action{width:100%}.video-showcase-heading h2{font-size:42px}}
+
+/* Apresentação interativa: foto inicial / vídeo integral / foto final */
+.presentation-stage{position:relative;aspect-ratio:16/9;background:#121713;overflow:hidden}
+.presentation-cover{position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:#e8e1da;color:#fff;cursor:pointer;text-align:left;overflow:hidden}
+.presentation-cover img{width:100%;height:100%;object-fit:contain;object-position:center;transition:transform .3s ease}
+.presentation-cover:hover img{transform:scale(1.015)}
+.presentation-cover-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,24,19,.75),transparent 47%)}
+.presentation-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:78px;height:78px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;color:#4d5e53;font-size:25px;padding-left:4px;box-shadow:0 12px 28px #0003}
+.presentation-cover-text{position:absolute;left:30px;bottom:27px;display:flex;flex-direction:column;gap:3px}
+.presentation-cover-text strong{font:600 clamp(24px,3.4vw,38px)/1.1 var(--serif)}
+.presentation-cover-text small{font:600 13px var(--sans)}
+.presentation-stage video{display:block;width:100%;height:100%;aspect-ratio:auto;object-fit:contain;background:#101412}
+.showcase-player [hidden]{display:none!important}
+.presentation-reset{cursor:pointer;border:1px solid #82978a;color:#fff;background:transparent;padding:10px 16px;border-radius:999px;font:600 12px var(--sans)}
+.presentation-reset:hover{background:#52675a}
+@media(max-width:600px){.presentation-play{width:58px;height:58px;font-size:20px}.presentation-cover-text{left:15px;bottom:15px}.presentation-cover-text strong{font-size:24px}}
+
+
+/* Cartão compacto quando exibe foto; expande somente durante a reprodução */
+.video-showcase .showcase-player{
+  width:min(100%, 430px);
+  max-width:430px;
+  margin:0 auto;
+  transition:width .25s ease, max-width .25s ease;
+}
+.video-showcase .presentation-stage{aspect-ratio:4/3}
+.video-showcase .presentation-cover img{object-fit:contain;object-position:center;background:#ddd5ca}
+.video-showcase .showcase-player.is-playing{width:100%;max-width:900px}
+.video-showcase .showcase-player.is-playing .presentation-stage{aspect-ratio:16/9}
+.video-showcase .showcase-player.is-playing video{width:100%;height:100%;object-fit:contain}
+@media(max-width:600px){
+  .video-showcase .showcase-player{width:min(100%,360px)}
+  .video-showcase .showcase-player.is-playing{width:100%}
+}
+
+/* Capa limpa: foto totalmente visível, ações e textos fora da imagem */
+.video-showcase .presentation-stage{aspect-ratio:4/3}
+.video-showcase .presentation-cover{background:#e6ded4}
+.video-showcase .presentation-cover img{width:100%;height:100%;object-fit:contain;object-position:center;transform:none!important}
+.video-showcase .presentation-cover:hover img{filter:brightness(.985)}
+.video-showcase .presentation-cover:focus-visible{outline:4px solid #9bbba5;outline-offset:-4px}
+.video-showcase .presentation-cover-shade,
+.video-showcase .presentation-play,
+.video-showcase .presentation-cover-text{display:none!important}
+.video-showcase .showcase-player-bottom{background:#1f2521;gap:16px;padding:14px 20px}
+.presentation-prompt{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}
+.presentation-prompt #presentation-status{font-size:12px;color:#d4ded5;line-height:1.45}
+.presentation-start{border:0;background:#f4eee6;color:#344a3e;border-radius:999px;padding:11px 17px;cursor:pointer;white-space:nowrap;font:700 12px var(--sans)}
+.presentation-start:hover,.presentation-start:focus-visible{background:#dce9d9}
+.presentation-start span{margin-left:6px}
+.showcase-player [hidden]{display:none!important}
+@media(max-width:600px){
+ .video-showcase .showcase-player-bottom{padding:13px 14px}
+ .presentation-prompt{flex-direction:column;align-items:stretch;text-align:center;gap:10px}
+ .presentation-start{width:100%;padding:12px}
+}
