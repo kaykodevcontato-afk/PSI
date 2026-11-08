@@ -1,6 +1,6 @@
 # Landing page — Psicóloga Bárbara Rodrigues
 
-Site estático e responsivo, pronto para GitHub Pages. Inclui as 3 fotografias enviadas e o vídeo da profissional. Sem necessidade de servidor.
+Site estático e responsivo, pronto para GitHub Pages. Inclui a fotografia principal e o vídeo da profissional. As outras duas fotos foram removidas a pedido. Sem necessidade de servidor.
 
 ## Antes de publicar (IMPORTANTE)
 
@@ -22,8 +22,6 @@ Site estático e responsivo, pronto para GitHub Pages. Inclui as 3 fotografias e
 - **Cores**: início do `style.css`, em `:root`.
 - **WhatsApp e mensagem padrão**: início do `script.js`, em `CONFIG`.
 - **Fotografia principal**: `assets/barbara-retrato.jpg`.
-- **Foto consultório 1**: `assets/consultorio-01.png`.
-- **Foto consultório 2**: `assets/consultorio-02.png`.
 - **Vídeo**: `assets/barbara-video.mp4`.
 
 O vídeo está hospedado nos próprios arquivos do repositório. GitHub Pages serve o arquivo, mas não fornece agenda médica nem pagamento. A consulta é solicitada via WhatsApp, mediante configuração do telefone.
@@ -33,3 +31,6 @@ O vídeo está hospedado nos próprios arquivos do repositório. GitHub Pages se
 
 O logotipo `assets/logo-assinatura-barbara-rodrigues.png` é uma assinatura em PNG transparente.
 É usado no cabeçalho, na apresentação e no rodapé. Para substituir a assinatura, mantenha o mesmo nome do arquivo.
+
+## Atualização de imagens
+As duas fotografias secundárias foram removidas do site e da pasta `assets/`. As seções Sobre e Consultório agora apresentam painéis de texto sem imagens secundárias.
